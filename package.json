@@ -1,13 +1,14 @@
 {
   "name": "bluebird-polyfill",
   "version": "1.0.0",
-  "description": "",
+  "description": "Promise polyfills to mix async-await with code written for Bluebird promises",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "mocha test/**/*.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Salvatore Previti",
+  "license": "MIT",
   "peerDependencies": {
     "bluebird": ">=3.3.0"
   },
