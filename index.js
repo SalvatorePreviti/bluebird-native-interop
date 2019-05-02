@@ -272,9 +272,6 @@ const prototypeMembers = {
   mapSeries(iterator) {
     return this.then(result => this.constructor.mapSeries(result, iterator))
   },
-  nodeify(...sink) {
-    return this.toBluebird().nodeify(...sink)
-  },
   props() {
     return this.then(result => this.constructor.props(result))
   },
@@ -405,6 +402,7 @@ function bluebirdifyPromiseClass(Target) {
     augment(Target, staticMembers)
 
     augment(Target, {
+      cast: Target.resolve,
       pending: Target.pending,
       rejected: Target.reject,
       fulfilled: Target.resolve
@@ -415,10 +413,11 @@ function bluebirdifyPromiseClass(Target) {
     augment(targetProto, prototypeMembers)
 
     augment(targetProto, {
-      done: targetProto.then,
-      error: targetProto.catch,
-      lastly: targetProto.finally,
       break: targetProto.cancel,
+      error: targetProto.catch,
+      done: targetProto.then,
+      lastly: targetProto.finally,
+      nodeify: targetProto.asCallback,
       return: targetProto.thenReturn,
       throw: targetProto.thenThrow
     })

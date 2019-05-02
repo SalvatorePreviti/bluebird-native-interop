@@ -1,7 +1,7 @@
 const { expect } = require('chai')
 const Bluebird = require('bluebird')
 
-describe.only('Promise static', () => {
+describe('Promise static', () => {
   describe('bluebirdifyPromiseClass', () => {
     it('is defined both in Bluebird and in Promise', () => {
       expect(typeof Promise.bluebirdifyPromiseClass).to.equal('function')
@@ -31,6 +31,10 @@ describe.only('Promise static', () => {
     it('returns true for random object', () => {
       expect(Promise.is(() => {})).to.equal(false)
     })
+  })
+
+  it('has cast', () => {
+    expect(Promise.cast).to.equal(Promise.resolve)
   })
 
   describe('defer', () => {
@@ -138,10 +142,6 @@ describe.only('Promise static', () => {
       expect(Promise.bind).to.equal(Bluebird.bind)
       expect(!!Promise.bind.name).to.equal(true)
     })
-    it('has cast', () => {
-      expect(Promise.cast).to.equal(Bluebird.cast)
-      expect(!!Promise.cast.name).to.equal(true)
-    })
     it('has config', () => {
       expect(Promise.config).to.equal(Bluebird.config)
       expect(!!Promise.config.name).to.equal(true)
@@ -153,10 +153,6 @@ describe.only('Promise static', () => {
     it('has delay', () => {
       expect(Promise.delay).to.equal(Bluebird.delay)
       expect(!!Promise.delay.name).to.equal(true)
-    })
-    it('has each', () => {
-      expect(Promise.each).to.equal(Bluebird.each)
-      expect(!!Promise.each.name).to.equal(true)
     })
     it('has filter', () => {
       expect(Promise.filter).to.equal(Bluebird.filter)
@@ -189,10 +185,6 @@ describe.only('Promise static', () => {
     it('has map', () => {
       expect(Promise.map).to.equal(Bluebird.map)
       expect(!!Promise.map.name).to.equal(true)
-    })
-    it('has mapSeries', () => {
-      expect(Promise.mapSeries).to.equal(Bluebird.mapSeries)
-      expect(!!Promise.mapSeries.name).to.equal(true)
     })
     it('has method', () => {
       expect(Promise.method).to.equal(Bluebird.method)
@@ -241,10 +233,6 @@ describe.only('Promise static', () => {
     it('has spawn', () => {
       expect(Promise.spawn).to.equal(Bluebird.spawn)
       expect(!!Promise.spawn.name).to.equal(true)
-    })
-    it('has try', () => {
-      expect(Promise.try).to.equal(Bluebird.try)
-      expect(!!Promise.try.name).to.equal(true)
     })
     it('has using', () => {
       expect(Promise.using).to.equal(Bluebird.using)
