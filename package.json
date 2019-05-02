@@ -1,10 +1,13 @@
 {
-  "name": "bluebird-polyfill",
-  "version": "1.0.0",
+  "name": "bluebird-native-interop",
+  "version": "0.0.1",
   "description": "Promise polyfills to mix async-await with code written for Bluebird promises",
   "main": "index.js",
   "types": "./index.d.ts",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalvatorePreviti/bluebird-native-interop.git"
+  },
   "scripts": {
     "test": "mocha test/**/*.js"
   },
