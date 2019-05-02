@@ -22,7 +22,7 @@ describe('some', () => {
       .caught(Promise.TypeError, () => {})
   })
 
-  it.only('should reject with rangeerror when impossible to fulfill', () => {
+  it('should reject with rangeerror when impossible to fulfill', () => {
     return Promise.resolve([1, 2, 3])
       .some(4)
       .then(assert.fail)

@@ -2,12 +2,12 @@ const { assert } = require('chai')
 
 describe('delay', () => {
   it('should not delay rejection', () => {
-    const promise = Promise.reject(5).delay(1)
+    const promise = Promise.reject(5).delay(15)
 
     promise.then(assert.fail, () => {})
 
     return Promise.resolve()
-      .delay(1)
+      .delay(5)
       .then(() => {
         assert(!promise.isPending())
       })

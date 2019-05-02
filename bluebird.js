@@ -1,1 +1,3 @@
-module.exports = require('./bluebirdify').Bluebird
+require('./')
+
+module.exports = require('bluebird')
