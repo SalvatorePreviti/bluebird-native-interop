@@ -402,10 +402,12 @@ function bluebirdifyPromiseClass(Target) {
     augment(Target, staticMembers)
 
     augment(Target, {
+      attempt: Target.try,
       cast: Target.resolve,
       pending: Target.pending,
       rejected: Target.reject,
-      fulfilled: Target.resolve
+      fulfilled: Target.resolve,
+      default: Target
     })
 
     augment(Target, Bluebird)

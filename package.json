@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Promise polyfills to mix async-await with code written for Bluebird promises",
   "main": "index.js",
+  "types": "./index.d.ts",
   "private": true,
   "scripts": {
     "test": "mocha test/**/*.js"
@@ -13,7 +14,12 @@
     "bluebird": ">=3.3.0"
   },
   "devDependencies": {
-    "@types/node": "^11.13.6",
+    "@types/bluebird": "^3.5.26",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.8",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
     "bluebird": "^3.5.4",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
@@ -22,7 +28,8 @@
     "eslint-plugin-node": "^8.0.1",
     "mocha": "^6.1.4",
     "prettier": "^1.17.0",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "typescript": "^3.4.5"
   },
   "engines": {
     "node": ">=6.0.0"
