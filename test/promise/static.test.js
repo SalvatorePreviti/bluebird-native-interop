@@ -1,7 +1,24 @@
 const { expect } = require('chai')
 const Bluebird = require('bluebird')
 
-describe('initPromise static', () => {
+describe.only('Promise static', () => {
+  describe('bluebirdifyPromiseClass', () => {
+    it('is defined both in Bluebird and in Promise', () => {
+      expect(typeof Promise.bluebirdifyPromiseClass).to.equal('function')
+      expect(Bluebird.bluebirdifyPromiseClass).to.equal(Promise.bluebirdifyPromiseClass)
+    })
+
+    it('can bluebirdify a promiselike class', () => {
+      class DummyPromise {
+        then() {}
+      }
+
+      const x = Promise.bluebirdifyPromiseClass(DummyPromise)
+      expect(x).to.equal(DummyPromise)
+      expect(typeof x.prototype.catch).to.equal('function')
+    })
+  })
+
   describe('is', () => {
     it('returns true for bluebird', () => {
       expect(Promise.is(Bluebird.resolve())).to.equal(true)

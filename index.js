@@ -104,7 +104,7 @@ const promiseDetails = promise => {
 const staticMembers = {
   Promise,
   Bluebird,
-  bluebirdify,
+  bluebirdifyPromiseClass,
   supportsAsyncAwait: false,
   suppressUnhandledRejections(promise) {
     if (typeof promise === 'object' && promise !== null) {
@@ -366,7 +366,7 @@ try {
   require('./lib/_withAsyncAwait')(staticMembers, prototypeMembers)
 } catch (_error) {}
 
-function bluebirdify(Target) {
+function bluebirdifyPromiseClass(Target) {
   if (typeof Target !== 'function') {
     throw new TypeError(`Cannot bluebirdify an ${typeof Target}.`)
   }
@@ -442,7 +442,7 @@ function bluebirdify(Target) {
   return Target
 }
 
-bluebirdify(Bluebird)
-bluebirdify(Promise)
+bluebirdifyPromiseClass(Bluebird)
+bluebirdifyPromiseClass(Promise)
 
 module.exports = Promise

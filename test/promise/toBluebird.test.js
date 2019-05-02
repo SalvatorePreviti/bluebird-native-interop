@@ -50,9 +50,12 @@ describe('toBluebird', () => {
     )
 
     promises.push(
-      p.toBluebird().then(value => {
-        calls.push({ order: 5, value })
-      })
+      p
+        .toBluebird()
+        .toBluebird()
+        .then(value => {
+          calls.push({ order: 5, value })
+        })
     )
 
     promises.push(
