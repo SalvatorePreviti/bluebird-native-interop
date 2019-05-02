@@ -1,3 +1,5 @@
+// Based on Bluebird tests (MIT License). see https://github.com/petkaantonov/bluebird and http://bluebirdjs.com and LICENSE file
+
 const { assert } = require('chai')
 
 describe('map', () => {

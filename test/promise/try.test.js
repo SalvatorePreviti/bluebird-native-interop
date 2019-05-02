@@ -1,4 +1,4 @@
-'use strict'
+// Based on Bluebird tests (MIT License). see https://github.com/petkaantonov/bluebird and http://bluebirdjs.com and LICENSE file
 
 const assert = require('assert')
 
@@ -47,7 +47,7 @@ describe('Promise.attempt', () => {
   it('should unwrap returned thenable', () => {
     return tryy(() => {
       return {
-        then(f, v) {
+        then(f) {
           f(3)
         }
       }
